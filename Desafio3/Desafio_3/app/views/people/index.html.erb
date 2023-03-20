@@ -1,0 +1,32 @@
+
+<h1 class="standard-content">People</h1>
+<p id="notice"><%= notice %></p>
+
+<section class="standard-content table-section">
+
+<table class="sortable table table-bordered" >
+  <thead>
+    <tr>
+    <th scope="col">CLIENTE</th>
+    <th scope="col"> ID </th>
+    <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @people.each do |person| %>
+      <tr>
+        <td><%= person.name %></td>
+        <td><%= person.id %></td>
+        <td class="act-btn"><%= link_to 'Show', person , class: "btn btn-success"  %></td>
+        <td class="act-btn"><%= link_to 'Edit', edit_person_path(person) , class: "btn btn-warning"  %></td>
+        <td class="act-btn"><%= link_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' } , class: "btn btn-danger" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Person', new_person_path , class: 'btn btn-outline-primary rails-btn' %>
+</section>

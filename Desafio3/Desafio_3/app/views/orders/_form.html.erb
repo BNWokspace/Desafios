@@ -1,0 +1,33 @@
+<%= form_for(order ,html: {class: 'row g-3'}) do |f| %>
+  <% if order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+      <ul>
+      <% order.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <section class="reg-section">
+  <div class="field row g-0">
+    <%= f.label :id, 'ID da Compra' , class: 'col-md-2'%>
+    <%= f.text_field :id , disabled: true , class: 'col-md-4' %>
+  </div>
+
+  <div class="field row g-0">
+    <%= f.label :person_id,'Cliente' , class: 'col-md-2' %>
+    <%= f.collection_select   :person_id, Person.all,:id,:name , class: 'col-md-4' ,:include_blank =>"Escolha um Cliente" %>
+  </div>
+ 
+  <div class="field row g-0">
+    <%= f.label :product_id, 'Produto' , class: 'col-md-2'%>
+    <%= f.collection_select   :product_id, Product.all,:id,:name , class: 'col-md-4', :include_blank =>"Escolha um Produto"  %>
+  </div>
+  </section>
+ 
+  <div class="actions">
+    <%= f.submit  class: 'btn btn-outline-success'%>
+  </div>
+<% end %>

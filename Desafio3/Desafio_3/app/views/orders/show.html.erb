@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+<section class= "standard-content">
+<div class="card" style="width: 30rem;">
+  <div class="card-body">
+      <h5 class="card-title">Dados da Compra</h5>
+         <p class="card-text">
+            <strong>ID da Compra:</strong>
+            <%= @order.id %>
+            </br>
+            <strong>Nome do Cliente:</strong>
+            <%= @people.select(:name).where(["id = ?",@order.person_id]).pluck(:name).first %>
+            </br>
+            <strong>Produto Comprado:</strong>
+            <%= @products.select(:name).where(["id = ?",@order.product_id]).pluck(:name).first  %>
+            </br>
+            <%= link_to 'Edit', edit_order_path(@order) , class: 'btn btn-warning' %> 
+        </p>
+  </div>
+</div>
+
+<%= link_to 'Back', orders_path , class: 'btn btn-outline-primary rails-btn back-edit' %>
+</section>

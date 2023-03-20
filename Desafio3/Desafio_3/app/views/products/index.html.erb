@@ -1,0 +1,33 @@
+
+<h1 class="standard-content">Products</h1>
+<p id="notice"><%= notice %></p>
+
+<section class="standard-content table-section">
+<table class="sortable table table-bordered ">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">PRODUTO</th>
+      <th scope="col">PREÇO</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product.id %></td>
+        <td><%= product.name %></td>
+        <td><%= product.price %></td>
+        <td class="act-btn"><%= link_to 'Show', product , class: "btn btn-success" %></td>
+        <td class="act-btn"><%= link_to 'Edit', edit_product_path(product) , class: "btn btn-warning"%></td>
+        <td class="act-btn"><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Você tem certeza?' } , class: "btn btn-danger" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Product', new_product_path , class: 'btn btn-outline-primary rails-btn' %>
+</section>

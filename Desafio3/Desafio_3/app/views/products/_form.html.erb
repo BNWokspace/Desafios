@@ -1,0 +1,32 @@
+<%= form_for(product,html: {class: 'row g-3'})  do |f| %>
+  <% if product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+      <% product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <section class="reg-section">
+  <div class="field row g-0">
+    <%= f.label :name ,'Nome', class: 'col-md-2'%>
+    <%= f.text_field :name , class: 'col-md-4'%>
+  </div>
+  <div class="field row g-0">
+  <%= f.label :price ,'Preço', class: 'col-md-2'%>
+  <%= f.text_field :price , class: 'col-sm-1'%>
+</div>
+
+  <div class="field row g-0">
+    <%= f.label :id, 'ID',class: 'col-md-2'%>
+    <%= f.text_field :id ,disabled: true , class: 'col-sm-1'%>
+  </div>
+  </section>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

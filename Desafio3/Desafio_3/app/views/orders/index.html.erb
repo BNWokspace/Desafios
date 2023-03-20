@@ -1,0 +1,42 @@
+
+<h1 class="standard-content">Orders</h1>
+<p id="notice"><%= notice %></p>
+ 
+<section class="standard-content table-section">
+<%= form_tag(orders_path, method: :get) do %>
+  <%= text_field_tag(:search, params[:search]) %>
+  <%= submit_tag ("Search") %>
+<% end %>
+
+
+
+<table id="MyTable" class="sortable table table-bordered " >
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">CLIENTE</th>
+      <th scope="col">PRODUTO</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        <td><%= order.id %></td>
+        <td><%= @people.select(:name).where(["id = ?",order.person_id]).pluck(:name).first %> </td>
+        <td><%= @products.select(:name).where(["id = ?",order.product_id]).pluck(:name).first %> </td>
+        <td class="act-btn"><%= link_to 'Show', order , class: "btn btn-success"  %></td>
+        <td class="act-btn"><%= link_to 'Edit', edit_order_path(order) , class: "btn btn-warning"%></td>
+        <td class="act-btn"><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } , class: "btn btn-danger"  %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+ 
+
+
+<br>
+
+<%= link_to 'New Order', new_order_path , class: 'btn btn-outline-primary rails-btn' %>
+</section>

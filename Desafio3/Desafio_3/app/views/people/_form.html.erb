@@ -1,0 +1,26 @@
+<%= form_for(person,html: {class: 'row g-3'})  do |f| %>
+  <% if person.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(person.errors.count, "error") %> prohibited this person from being saved:</h2>
+
+      <ul>
+      <% person.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <section class="reg-section">
+  <div class="field row g-0">
+    <%= f.label :name ,'Nome', class: 'col-md-2'%>
+    <%= f.text_field :name , class: 'col-md-4'%>
+  </div>
+  <div class="field row g-0">
+    <%= f.label :id,'ID', class: 'col-md-2'%>
+    <%= f.text_field :id ,disabled: true , class: 'col-sm-1'%>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
