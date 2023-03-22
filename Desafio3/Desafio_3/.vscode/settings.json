@@ -1,0 +1,7 @@
+{
+    "ruby.codeCompletion": "rcodetools",
+    "emmet.includeLanguages": {
+        "erb": "html",
+        "ruby": "html"
+    }
+}

@@ -1,5 +1,8 @@
+<header class="standard-content header">
+<h1>CLIENTES</h1>
+<%= render 'layouts/navbar' %>
 
-<h1 class="standard-content">People</h1>
+</header>
 <p id="notice"><%= notice %></p>
 
 <section class="standard-content table-section">
@@ -18,9 +21,9 @@
       <tr>
         <td><%= person.name %></td>
         <td><%= person.id %></td>
-        <td class="act-btn"><%= link_to 'Show', person , class: "btn btn-success"  %></td>
-        <td class="act-btn"><%= link_to 'Edit', edit_person_path(person) , class: "btn btn-warning"  %></td>
-        <td class="act-btn"><%= link_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' } , class: "btn btn-danger" %></td>
+        <td class="act-btn"><%= link_to 'Mostrar', person , class: "btn btn-success"  %>
+        <%= link_to 'Editar', edit_person_path(person) , class: "btn btn-warning"  %>
+        <%= link_to 'Excluir', person, method: :delete, data: { confirm: 'Você tem certeza?' } , class: "btn btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,5 +31,5 @@
 
 <br>
 
-<%= link_to 'New Person', new_person_path , class: 'btn btn-outline-primary rails-btn' %>
+<%= link_to 'Novo Cliente', new_person_path , class: 'btn btn-outline-primary rails-btn' %>
 </section>

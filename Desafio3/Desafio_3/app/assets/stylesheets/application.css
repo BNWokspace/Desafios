@@ -24,7 +24,18 @@ body{
     margin: 0% 1% 2% 1%;
 
 }
+.header {
+    padding: 2% 2% 0% 2%;
+    text-align: center;
 
+}
+.navbar{
+    justify-content: center !important;
+}
+.navbar-img{
+
+    height: 2.5em;
+}
 .welcome-section{
     text-align: center;
     padding: 20%;
@@ -56,10 +67,18 @@ select{
 /* Tela#index */
 
 .table{
+    margin: 0px 10%;
+    min-width: 50% !important;
+    max-width: 70% !important;
     border-color: var(--bs-body-color)!important;
+    text-align: center;
+    vertical-align: middle !important;
 }
 form{
     margin: 1% 0%;
+}
+.btn{
+    margin: 0px 10px;
 }
 .act-btn{
     text-align: center;
@@ -69,4 +88,19 @@ form{
 
 .back-edit{
 margin-top: 1%;
+}
+
+/* Search */
+
+#search-box {
+    float: right;
+    margin-right: 10%;
+    text-align: right;
+
+}
+
+/* Tratamento de erro */
+
+.field_with_errors label { 
+    display: inline !important; 
 }
