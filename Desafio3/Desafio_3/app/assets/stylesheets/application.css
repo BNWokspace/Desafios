@@ -104,3 +104,14 @@ margin-top: 1%;
 .field_with_errors label { 
     display: inline !important; 
 }
+
+
+
+
+/* ERROS */
+
+.inputfield-error {
+
+    background-color: rgba(255, 0, 0, 0.03);
+    border-color: rgb(255, 0, 0);
+}

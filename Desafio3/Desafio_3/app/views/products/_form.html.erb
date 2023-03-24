@@ -12,14 +12,16 @@
   <% end %>
 
   <section class="reg-section">
-  <div class="field row g-0">
-    <%= f.label :name ,'Nome', class: 'col-md-2'%>
-    <%= f.text_field :name , class: 'col-md-4'%>
+
+    <div class="field row g-0">
+      <label class="col-md-2" for="product_name">Nome</label>
+      <input class="col-md-4 requireds" type="text" name="product[name]" id="product_name" required/>
+    </div>
+    <div class="field row g-0">
+    <label class="col-md-2" for="product_price">Preço</label>
+    <input class="col-sm-1 requireds" placeholder="Ex: 5.99" type="text" name="product[price]" id="product_price" required/>
   </div>
-  <div class="field row g-0">
-  <%= f.label :price ,'Preço', class: 'col-md-2'%>
-  <%= f.text_field :price , class: 'col-sm-1', :placeholder => 'Ex: 5.99'%>
-</div>
+  
 
   <div class="field row g-0">
     <%= f.label :id, 'ID',class: 'col-md-2'%>
@@ -27,6 +29,8 @@
   </div>
   </section>
   <div class="actions">
-    <%= f.submit %>
+    <a onclick = 'required_error()' class = 'btn' style = 'margin: 0px;border: 0px;padding: 0px;'>
+      <%= f.submit  class: 'btn btn-outline-success'%>
+    </a>
   </div>
 <% end %>

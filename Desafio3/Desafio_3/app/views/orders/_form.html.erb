@@ -16,18 +16,33 @@
     <%= f.text_field :id , disabled: true , class: 'col-md-4' %>
   </div>
 
+  
   <div class="field row g-0">
-    <%= f.label :person_id,'Cliente' , class: 'col-md-2' %>
-    <%= f.collection_select   :person_id, Person.all,:id,:name , class: 'col-md-4' ,:include_blank =>"Escolha um Cliente" %>
+    <label for='order_person_id' class = 'col-md-2'>Cliente </label>
+    <select name='order[person_id]' id='order_person_id' class= 'col-md-4 requireds' required>
+        <option value>Escolha um Cliente</option>
+        <%= @people.each do  |person|  %>
+        <option id='personOption'value='<%= person.id %>'><%= person.name %></option>
+        <% end %>
+    </select>
   </div>
- 
-  <div class="field row g-0">
-    <%= f.label :product_id, 'Produto' , class: 'col-md-2'%>
-    <%= f.collection_select   :product_id, Product.all,:id,:name , class: 'col-md-4', :include_blank =>"Escolha um Produto"  %>
+
+
+    <div class="field row g-0">
+    <label for='order_product_id' class = 'col-md-2'>Produto</label>
+    <select name='order[product_id]' id='order_product_id' class= 'col-md-4 requireds' required>
+        <option value>Escolha um Produto</option>
+        <%= @products.each do  |product|  %>
+        <option value='<%= product.id %>'><%= product.name %></option>
+        <% end %>
+    </select>
   </div>
-  </section>
+
+
  
   <div class="actions">
-    <%= f.submit  class: 'btn btn-outline-success'%>
-  </div>
+    <a onclick = 'required_error()' class = 'btn' style = 'margin: 0px;border: 0px;padding: 0px;'>
+      <%= f.submit  class: 'btn btn-outline-success'%>
+    </a>
+    </div>
 <% end %>

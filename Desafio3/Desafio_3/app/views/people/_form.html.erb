@@ -13,14 +13,16 @@
 
   <section class="reg-section">
   <div class="field row g-0">
-    <%= f.label :name ,'Nome', class: 'col-md-2'%>
-    <%= f.text_field :name , class: 'col-md-4'%>
+    <label class="col-md-2" for="person_name">Nome</label>
+    <input class="col-md-4 requireds" type="text" value="" name="person[name]" id="person_name" required>
   </div>
+
   <div class="field row g-0">
     <%= f.label :id,'ID', class: 'col-md-2'%>
     <%= f.text_field :id ,disabled: true , class: 'col-sm-1'%>
   </div>
   <div class="actions">
-    <%= f.submit %>
-  </div>
+    <a onclick = 'required_error()' class = 'btn' style = 'margin: 0px;border: 0px;padding: 0px;'>
+      <%= f.submit  class: 'btn btn-outline-success'%>
+    </a>  </div>
 <% end %>

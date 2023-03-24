@@ -14,3 +14,17 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+function required_error(){
+
+const requireds = document.getElementsByClassName("requireds");
+
+for (r of requireds){
+    if (r.value == null || !r.value){
+        r.className += " inputfield-error";
+    }
+}
+
+}
+
